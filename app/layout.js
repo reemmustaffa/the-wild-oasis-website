@@ -2,6 +2,18 @@
 
 import Logo from "@/app/_components/Logo";
 import Navigation from "@/app/_components/Navigation";
+
+//import the font from google fonts and the name of the font is Josefin Sans
+import { Josefin_Sans } from "next/font/google";
+
+//configure the font
+const josefin = Josefin_Sans({
+  //"هات لي فقط الحروف اللاتينية الأساسية (a-z, A-Z) ورموزها البسيطة، ومش محتاج أي لغات تانية.
+  subsets: ["latin"],
+  display: "swap",
+});
+
+console.log(josefin);
 import "@/app/_styles/globals.css";
 
 export const metadata = {
@@ -17,7 +29,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html>
-      <body className="bg-primary-950 text-primary-100 min-h-screen">
+      <body
+        className={`${josefin.className} bg-primary-950 text-primary-100 min-h-screen`}
+      >
         <header>
           <Logo />
           <Navigation />
