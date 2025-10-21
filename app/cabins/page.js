@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
 
 export const metadata = {
-  title: "Cabin",
+  title: "Cabins",
 };
 export default function Page() {
   return (
