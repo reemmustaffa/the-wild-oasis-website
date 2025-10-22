@@ -2,6 +2,13 @@ import CabinList from "@/app/_components/CabinList";
 import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
 
+//دي معاناها هيحصل ريفتش للداتا كل مره بعمل ريكوست فيها
+// export const revalidate = 0;
+
+//دي معاناه هيحصل ريفتش كل 15 ثانيه ISR
+// export const revalidate = 15;
+// export const revalidate = 3600;
+
 export const metadata = {
   title: "Cabins",
 };
