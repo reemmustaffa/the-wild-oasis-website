@@ -4,7 +4,7 @@ import { getCabins } from "../_lib/data-service";
 
 async function CabinList() {
   // منع الكاش عشان يجيب الداتا دايما من السيرفر
-  noStore();
+  // noStore();
   const cabins = await getCabins();
 
   if (!cabins.length) return null;

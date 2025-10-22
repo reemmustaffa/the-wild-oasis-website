@@ -7,7 +7,7 @@ import Spinner from "../_components/Spinner";
 
 //دي معاناه هيحصل ريفتش كل 15 ثانيه ISR
 // export const revalidate = 15;
-// export const revalidate = 3600;
+export const revalidate = 3600;
 
 export const metadata = {
   title: "Cabins",
