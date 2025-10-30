@@ -2,13 +2,14 @@ import CabinList from "@/app/_components/CabinList";
 import { Suspense } from "react";
 import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
+import ReservationReminder from "../_components/ReservationReminder";
 
 //دي معاناها هيحصل ريفتش للداتا كل مره بعمل ريكوست فيها
-// export const revalidate = 0;
+export const revalidate = 0;
 
 //دي معاناه هيحصل ريفتش كل 15 ثانيه ISR
 // export const revalidate = 15;
-export const revalidate = 3600;
+// export const revalidate = 3600;
 
 export const metadata = {
   title: "Cabins",
@@ -36,6 +37,7 @@ export default function Page({ searchParams }) {
 
       <Suspense fallback={<Spinner />} key={filter}>
         <CabinList filter={filter} />
+        <ReservationReminder />
       </Suspense>
     </div>
   );

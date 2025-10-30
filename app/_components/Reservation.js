@@ -2,6 +2,8 @@ import { getBookedDatesByCabinId, getSettings } from "../_lib/data-service";
 import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
 
+export const dynamic = "force-dynamic";
+
 async function Reservation({ cabin }) {
   //الفكره هنا كأنهم ماشين بالتوازي يعني مفيش حاجه هتستني التانيه
   const [settings, bookedDates] = await Promise.all([
