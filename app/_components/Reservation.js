@@ -1,10 +1,13 @@
+import { auth } from "../_lib/auth";
 import { getBookedDatesByCabinId, getSettings } from "../_lib/data-service";
 import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
+import LoginMessage from "./LoginMessage";
 
 export const dynamic = "force-dynamic";
 
 async function Reservation({ cabin }) {
+  const session = await auth();
   //الفكره هنا كأنهم ماشين بالتوازي يعني مفيش حاجه هتستني التانيه
   const [settings, bookedDates] = await Promise.all([
     getSettings(),
@@ -18,7 +21,11 @@ async function Reservation({ cabin }) {
         cabin={cabin}
         bookedDates={bookedDates}
       />
-      <ReservationForm cabin={cabin} />
+      {session?.user ? (
+        <ReservationForm cabin={cabin} user={session?.user} />
+      ) : (
+        <LoginMessage />
+      )}
     </div>
   );
 }
