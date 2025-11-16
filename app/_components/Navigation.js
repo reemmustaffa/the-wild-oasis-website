@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "../_lib/auth";
 
 export default async function Navigation() {
+  //دي البيانات اللي راجعه من ouath لما عملت تسجيل الدخول بجوجل
   const session = await auth();
 
   return (

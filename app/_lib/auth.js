@@ -8,6 +8,13 @@ const authConfig = {
       clientSecret: process.env.AUTH_GOOGLE_SECRET,
     }),
   ],
+
+  callbacks: {
+    authorized({ auth, request }) {
+      //دي بتحول الاسترنج لترو وفولس بدل ماعمل شرط طويل
+      return !!auth?.user;
+    },
+  },
 };
 
 export const {
