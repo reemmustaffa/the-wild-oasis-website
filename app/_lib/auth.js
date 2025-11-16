@@ -15,9 +15,16 @@ const authConfig = {
       return !!auth?.user;
     },
   },
+
+  //دا عشان لو انت مش عامل تسجيل الدخول وحاولت تدحل علي الصفحه يوديك مباشرة ل الصفحه دي
+  pages: {
+    signIn: "/login",
+  },
 };
 
 export const {
   auth,
+  signIn,
+  signOut,
   handlers: { GET, POST },
 } = NextAuth(authConfig);
