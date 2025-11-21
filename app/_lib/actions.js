@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 
@@ -19,6 +20,9 @@ export async function updateGuest(formData) {
     .eq("id", session.user.guestId);
 
   if (error) throw new Error("Guest could not be updated");
+  // Revalidate the profile page to reflect the updated data
+  //عد تحميل الصفحة أو المسار ده، لأن البيانات اتغيرت
+  revalidatePath("/account/profile");
 }
 
 export async function signInAction() {
