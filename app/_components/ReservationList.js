@@ -1,7 +1,7 @@
 "use client";
 import { useOptimistic } from "react";
 import ReservationCard from "./ReservationCard";
-import { deleteReservation } from "../_lib/actions";
+import { deleteBooking } from "../_lib/actions";
 
 function ReservationList({ bookings }) {
   //بعرض التغيير مباشرة بدل الانتظار.
@@ -15,7 +15,7 @@ function ReservationList({ bookings }) {
   async function handleDelete(bookingId) {
     //✔️ Rollback: الرجوع للحالة الأصلية بعد فشل العملي
     optimisticDelete(bookingId);
-    await deleteReservation(bookingId);
+    await deleteBooking(bookingId);
   }
   return (
     <ul className="space-y-6">
